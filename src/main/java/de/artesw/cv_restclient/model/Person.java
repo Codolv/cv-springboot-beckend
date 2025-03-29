@@ -19,7 +19,7 @@ public class Person {
     private Long id;
     private String firstname;
     private String lastname;
-    private String description;
+    private String abschluss;
     private String email;
     private String phone;
 }
