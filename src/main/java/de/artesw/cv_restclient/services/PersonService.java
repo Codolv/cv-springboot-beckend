@@ -1,5 +1,6 @@
 package de.artesw.cv_restclient.services;
 
+import de.artesw.cv_restclient.model.Cv;
 import de.artesw.cv_restclient.model.Person;
 import de.artesw.cv_restclient.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,11 @@ public class PersonService {
         return personRepository.findById(id);
     }
 
-    public Person save(Person book) {
-        return personRepository.save(book);
+    public Person save(Person person) {
+        for(Cv cv: person.getCv()) {
+            cv.setPerson(person);
+        }
+        return personRepository.save(person);
     }
 
     public void deleteById(Long id) {

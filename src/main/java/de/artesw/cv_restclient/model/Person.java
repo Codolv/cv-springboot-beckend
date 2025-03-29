@@ -5,6 +5,8 @@ import lombok.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -20,6 +22,6 @@ public class Person {
     private String email;
     private String phone;
 
-    @OneToMany(mappedBy = "person")
-    private Cv cv;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST)
+    private List<Cv> cv;
 }
