@@ -19,10 +19,10 @@ public class PersonController {
         return personService.findAll();
     }
 
-    // create a book
+    // create a person
     @ResponseStatus(HttpStatus.CREATED) // 201
     @PostMapping
-    public Person create(@RequestBody Person book) {
-        return personService.save(book);
+    public Person create(@RequestBody Person person) {
+        return personService.save(person);
     }
 }

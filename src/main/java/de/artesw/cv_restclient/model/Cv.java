@@ -1,5 +1,6 @@
 package de.artesw.cv_restclient.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +19,13 @@ public class Cv {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(mappedBy = "cv")
+    private String description;
+
+    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
     private List<Project> projects;
+
+    @ManyToOne
+    @JoinColumn(name="person_id")
+    @JsonIgnore
+    private Person person;
 }

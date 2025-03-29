@@ -1,9 +1,6 @@
 package de.artesw.cv_restclient.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,4 +19,7 @@ public class Person {
     private String abschluss;
     private String email;
     private String phone;
+
+    @OneToMany(mappedBy = "person")
+    private Cv cv;
 }
