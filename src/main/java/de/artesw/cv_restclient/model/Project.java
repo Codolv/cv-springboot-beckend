@@ -32,7 +32,7 @@ public class Project {
     private List<String> skills;
 
     @ManyToOne
-    @JoinColumn(name="cv_id", nullable = true)
+    @JoinColumn(name="cv_id")
     @JsonIgnore
     private Cv cv;
 

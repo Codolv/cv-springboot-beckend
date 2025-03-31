@@ -2,6 +2,7 @@ package de.artesw.cv_restclient.services;
 
 import de.artesw.cv_restclient.model.Cv;
 import de.artesw.cv_restclient.model.Person;
+import de.artesw.cv_restclient.model.Project;
 import de.artesw.cv_restclient.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,9 @@ public class PersonService {
     public Person save(Person person) {
         for(Cv cv: person.getCv()) {
             cv.setPerson(person);
+            for (Project p : cv.getProjects()) {
+                p.setCv(cv);
+            }
         }
         return personRepository.save(person);
     }

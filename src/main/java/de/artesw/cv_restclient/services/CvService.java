@@ -19,7 +19,8 @@ public class CvService {
     }
 
     public Optional<Cv> findById(Long id) {
-        return repository.findById(id);
+        Optional<Cv> byId = repository.findById(id);
+        return byId;
     }
 
     public Cv save(Cv cv) {

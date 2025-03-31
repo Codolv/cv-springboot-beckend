@@ -21,7 +21,7 @@ public class Cv {
 
     private String description;
 
-    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cv", cascade = CascadeType.PERSIST)
     private List<Project> projects;
 
     @ManyToOne
